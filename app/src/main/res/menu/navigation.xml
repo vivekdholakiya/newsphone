@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/video"
+        android:title="video"
+        android:icon="@drawable/newsify"
+        />
+    <item
+        android:id="@+id/video1"
+        android:title="video1"
+        android:icon="@drawable/newsify"
+        />
+
+    <item
+        android:id="@+id/video2"
+        android:title="video2"
+        android:icon="@drawable/newsify"
+        />
+
+    <item
+        android:id="@+id/video3"
+        android:title="video3"
+        android:icon="@drawable/newsify"
+        />
+
+    <item
+        android:id="@+id/video4"
+        android:title="video4"
+        android:icon="@drawable/newsify"
+        />
+
+    <item
+        android:id="@+id/video5"
+        android:title="video5"
+        android:icon="@drawable/newsify"
+        />
+
+
+</menu>

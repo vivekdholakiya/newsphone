@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "998301692690",
+    "project_id": "newsphone-465ed",
+    "storage_bucket": "newsphone-465ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998301692690:android:f6b26fd19e316c77f3b9cb",
+        "android_client_info": {
+          "package_name": "com.example.newsphone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998301692690-3gfvo8lpa9al4nt0qsnbqusrk7l3do9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjWNPLz4Lu04WB8oQRwEWzEZbfy3ELkQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998301692690-3gfvo8lpa9al4nt0qsnbqusrk7l3do9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
