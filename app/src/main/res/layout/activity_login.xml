@@ -39,11 +39,11 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/log_email"
+                android:id="@+id/log_mob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress"/>
+                android:hint="Mobile Number"
+                android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPassword|numberPassword"/>
+                android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout

@@ -20,19 +20,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class login_activity extends AppCompatActivity {
 
-    EditText email,password;
+    EditText mobile,password;
     MaterialButton log_btn;
     TextView reg_btn;
-    String s_name,s_pass,s_email;
+    String s_name,s_pass,s_mobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        email= findViewById(R.id.log_email);
+        mobile = findViewById(R.id.log_mob);
         password= findViewById(R.id.log_password);
         log_btn=findViewById(R.id.btn2);
         reg_btn=findViewById(R.id.btn1);
@@ -57,12 +60,12 @@ public class login_activity extends AppCompatActivity {
 
     private void Validation() {
 
-        s_email=email.getText().toString();
+        s_mobile=mobile.getText().toString();
         s_pass=password.getText().toString();
 
-        if (s_email.isEmpty()){
-            email.setError("Please fill Field");
-            email.requestFocus();
+        if (!checkMobile(s_mobile)){
+            mobile.setError("Please fill Field");
+            mobile.requestFocus();
             return;
         }
         if (s_pass.isEmpty()){
@@ -75,15 +78,21 @@ public class login_activity extends AppCompatActivity {
 
     }
 
+    private boolean checkMobile(String mobile) {
+        Pattern p = Pattern.compile("[0-9]{10}");
+        Matcher m = p.matcher(mobile);
+        return  m.matches();
+    }
+
     private void chackfromdb() {
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Username ");
-        reference.child(s_name).addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://newsphone-465ed-default-rtdb.firebaseio.com");
+        reference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()){
-                            String db_pass=snapshot.child("password").getValue(String.class);
-                            if (s_pass.equals(db_pass)){
+                        if (snapshot.hasChild(s_mobile)){
+                            final String db_pass=snapshot.child(s_mobile).child("password").getValue(String.class);
+                            if (db_pass.equals(s_pass)){
                                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                                 intent.putExtra("name",s_name);
                                 Toast.makeText(login_activity.this, "Login successful", Toast.LENGTH_SHORT).show();
@@ -95,7 +104,7 @@ public class login_activity extends AppCompatActivity {
                             }
                         }
                         else {
-                            Toast.makeText(login_activity.this, "Record NOt found", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login_activity.this, "Record Not found", Toast.LENGTH_SHORT).show();
                         }
                     }
 

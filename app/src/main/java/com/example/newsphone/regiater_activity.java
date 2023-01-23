@@ -27,7 +27,6 @@ import java.util.regex.Pattern;
 
 public class regiater_activity extends AppCompatActivity {
 
-    DatabaseReference reference;
     StorageReference storageReference;
 
     EditText r_user,r_email,r_mobile,r_password,r_conform_password;
@@ -121,9 +120,15 @@ public class regiater_activity extends AppCompatActivity {
         else if (!checkPassword(password)){
             r_password.setError("Enter maximum 6 digits");
             r_password.requestFocus();
+            return;
         }
         if (con_password.isEmpty()){
             r_conform_password.setError("Please fill Field");
+            r_conform_password.requestFocus();
+            return;
+        }
+        else if (!password.equals(con_password)) {
+            r_conform_password.setError("not match");
             r_conform_password.requestFocus();
             return;
         }
@@ -147,8 +152,8 @@ public class regiater_activity extends AppCompatActivity {
         data.put("password",password);
 
         //database
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child(s_name).setValue(data)
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users");
+        reference.child(mobile).setValue(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
