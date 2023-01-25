@@ -93,14 +93,6 @@
 
             </TextView>
 
-            <TextView
-                android:layout_width="106dp"
-                android:layout_height="match_parent"
-                android:text="Share"
-                android:textSize="20sp"
-                android:gravity="center_horizontal"
-                android:padding="5dp"
-                />
         </LinearLayout>
 
 

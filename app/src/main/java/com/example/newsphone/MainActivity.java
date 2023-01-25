@@ -8,7 +8,9 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     TabItem mhome, mbusiness, menter, mgeneral, mhealth, mscience, msport, mtach;
     PagerAdapter pagerAdapter;
     Toolbar mtoolbar;
+    TextView name;
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
 
@@ -51,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
         mscience = findViewById(R.id.science);
         msport = findViewById(R.id.sport);
         mtach = findViewById(R.id.tech);
-
+        name = (TextView) findViewById(R.id.dbuname);
+        SharedPreferences sp = getSharedPreferences("login",MODE_PRIVATE);
+        String uname = sp.getString("uname", null);
+        name.setText(uname);
 
         ViewPager viewPager = findViewById(R.id.fc);
         tabLayout = findViewById(R.id.include);
