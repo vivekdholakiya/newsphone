@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -26,8 +27,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class regiater_activity extends AppCompatActivity {
-
-    StorageReference storageReference;
 
     EditText r_user,r_email,r_mobile,r_password,r_conform_password;
     MaterialButton register;
@@ -159,6 +158,11 @@ public class regiater_activity extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         //db update
                         progressDialog.dismiss();
+                        SharedPreferences sp = getSharedPreferences("login",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putBoolean("isLoggedIn",true);
+                        editor.putString("uname",s_name);
+                        editor.apply();
                         Toast.makeText(getApplicationContext(), "Registered Successfull", Toast.LENGTH_SHORT).show();
 
                         // dashbord

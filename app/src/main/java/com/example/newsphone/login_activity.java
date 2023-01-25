@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -28,7 +29,7 @@ public class login_activity extends AppCompatActivity {
     EditText mobile,password;
     MaterialButton log_btn;
     TextView reg_btn;
-    String s_name,s_pass,s_mobile;
+    String s_pass,s_mobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,10 +92,15 @@ public class login_activity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.hasChild(s_mobile)){
-                            final String db_pass=snapshot.child(s_mobile).child("password").getValue(String.class);
+                            final String db_pass = snapshot.child(s_mobile).child("password").getValue(String.class);
+                            final String name = snapshot.child(s_mobile).child("username").getValue(String.class);
                             if (db_pass.equals(s_pass)){
                                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                                intent.putExtra("name",s_name);
+                                SharedPreferences sp = getSharedPreferences("login",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sp.edit();
+                                editor.putBoolean("isLoggedIn",true);
+                                editor.putString("uname",name);
+                                editor.apply();
                                 Toast.makeText(login_activity.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);
                                 finish();
