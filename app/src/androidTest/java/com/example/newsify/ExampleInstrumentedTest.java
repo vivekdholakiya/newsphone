@@ -1,4 +1,4 @@
-package com.example.newsphone;
+package com.example.newsify;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.newsphone", appContext.getPackageName());
+        assertEquals("com.example.newsify", appContext.getPackageName());
     }
 }

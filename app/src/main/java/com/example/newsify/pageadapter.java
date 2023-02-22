@@ -1,4 +1,4 @@
-package com.example.newsphone;
+package com.example.newsify;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

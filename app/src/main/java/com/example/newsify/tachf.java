@@ -1,11 +1,9 @@
-package com.example.newsphone;
+package com.example.newsify;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,25 +17,25 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class businessf extends Fragment {
+public class tachf extends Fragment {
 
     String api="3cd3cc2c4be045caa48e900fc41032b1";
     ArrayList<Modal> modalArrayList;
-    com.example.newsphone.adapter adapter;
+    com.example.newsify.adapter adapter;
     String country="in";
-    private RecyclerView recyclerviewofbusiness;
-    private String category="business";
+    private RecyclerView recyclerviewofentertechnology;
+    private String category="technology";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.businessf, null);
+        View v=inflater.inflate(R.layout.techf, null);
 
-        recyclerviewofbusiness=v.findViewById(R.id.rvbussiness);
+        recyclerviewofentertechnology=v.findViewById(R.id.rvtach);
         modalArrayList=new ArrayList<>();
-        recyclerviewofbusiness.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerviewofentertechnology.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new adapter(getContext(),modalArrayList);
-        recyclerviewofbusiness.setAdapter(adapter);
+        recyclerviewofentertechnology.setAdapter(adapter);
 
 
         findNews();

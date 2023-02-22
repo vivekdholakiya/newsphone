@@ -1,11 +1,10 @@
-package com.example.newsphone;
+package com.example.newsify;
 
-import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,44 +18,41 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class healthf extends Fragment {
+public class homef extends Fragment {
 
     String api="3cd3cc2c4be045caa48e900fc41032b1";
     ArrayList<Modal> modalArrayList;
-    com.example.newsphone.adapter adapter;
+    com.example.newsify.adapter adapter;
     String country="in";
-    private RecyclerView recyclerviewofhealth;
-    private String category="health";
+    private RecyclerView recyclerviewofhome;
+    ProgressDialog pd;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.healthf, null);
-
-        recyclerviewofhealth=v.findViewById(R.id.rvhealth);
+        View v=inflater.inflate(R.layout.homef, null);
+        recyclerviewofhome=v.findViewById(R.id.rvhome);
         modalArrayList=new ArrayList<>();
-        recyclerviewofhealth.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerviewofhome.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new adapter(getContext(),modalArrayList);
-        recyclerviewofhealth.setAdapter(adapter);
-
+        recyclerviewofhome.setAdapter((RecyclerView.Adapter) adapter);
 
         findNews();
-
-
         return v;
     }
 
     private void findNews() {
 
-        apiutiliti.apiinterface().getcategoriesnews(country,category,100,api).enqueue(new Callback<newsmain>() {
+        apiutiliti.apiinterface().getnews(country,100,api).enqueue(new Callback<newsmain>() {
             @Override
             public void onResponse(Call<newsmain> call, Response<newsmain> response) {
                 if (response.isSuccessful())
                 {
                     modalArrayList.addAll(response.body().getArticles());
                     adapter.notifyDataSetChanged();
-                }
 
+                }
             }
 
             @Override

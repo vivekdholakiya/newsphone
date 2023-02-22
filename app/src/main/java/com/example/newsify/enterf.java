@@ -1,11 +1,9 @@
-package com.example.newsphone;
+package com.example.newsify;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,25 +17,25 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class sportf extends Fragment {
+public class enterf extends Fragment {
 
     String api="3cd3cc2c4be045caa48e900fc41032b1";
     ArrayList<Modal> modalArrayList;
-    com.example.newsphone.adapter adapter;
+    com.example.newsify.adapter adapter;
     String country="in";
-    private RecyclerView recyclerviewofsport;
-    private String category="sports";
+    private RecyclerView recyclerviewofenter;
+    private String category="entertainment";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.sportf, null);
+        View v=inflater.inflate(R.layout.enterf, null);
 
-        recyclerviewofsport=v.findViewById(R.id.rvsport);
+        recyclerviewofenter=v.findViewById(R.id.rventer);
         modalArrayList=new ArrayList<>();
-        recyclerviewofsport.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerviewofenter.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new adapter(getContext(),modalArrayList);
-        recyclerviewofsport.setAdapter(adapter);
+        recyclerviewofenter.setAdapter(adapter);
 
 
         findNews();

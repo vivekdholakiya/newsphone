@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "998301692690",
-    "project_id": "newsphone-465ed",
-    "storage_bucket": "newsphone-465ed.appspot.com"
+    "project_number": "617220055307",
+    "firebase_url": "https://newsproject-a8cb0-default-rtdb.firebaseio.com",
+    "project_id": "newsproject-a8cb0",
+    "storage_bucket": "newsproject-a8cb0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:998301692690:android:f6b26fd19e316c77f3b9cb",
+        "mobilesdk_app_id": "1:617220055307:android:fada54bf61a205c590820e",
         "android_client_info": {
-          "package_name": "com.example.newsphone"
+          "package_name": "com.example.newsify"
         }
       },
       "oauth_client": [
         {
-          "client_id": "998301692690-3gfvo8lpa9al4nt0qsnbqusrk7l3do9n.apps.googleusercontent.com",
+          "client_id": "617220055307-8op2ha2d4fs6tn98henvde42s5g6m1a5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAjWNPLz4Lu04WB8oQRwEWzEZbfy3ELkQc"
+          "current_key": "AIzaSyAbNzqDmvalwf4ed2KOWYiiLwhdHxwozuY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "998301692690-3gfvo8lpa9al4nt0qsnbqusrk7l3do9n.apps.googleusercontent.com",
+              "client_id": "617220055307-8op2ha2d4fs6tn98henvde42s5g6m1a5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

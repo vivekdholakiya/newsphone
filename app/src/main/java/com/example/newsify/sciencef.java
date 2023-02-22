@@ -1,11 +1,9 @@
-package com.example.newsphone;
+package com.example.newsify;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,25 +17,25 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class generalf extends Fragment {
+public class sciencef extends Fragment {
 
     String api="3cd3cc2c4be045caa48e900fc41032b1";
     ArrayList<Modal> modalArrayList;
-    com.example.newsphone.adapter adapter;
+    com.example.newsify.adapter adapter;
     String country="in";
-    private RecyclerView recyclerviewofgeneral;
-    private String category="general";
+    private RecyclerView recyclerviewofscience;
+    private String category="science";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.generalf, null);
+        View v=inflater.inflate(R.layout.sciencef, null);
 
-        recyclerviewofgeneral=v.findViewById(R.id.rvgeneral);
+        recyclerviewofscience=v.findViewById(R.id.rvscience);
         modalArrayList=new ArrayList<>();
-        recyclerviewofgeneral.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerviewofscience.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new adapter(getContext(),modalArrayList);
-        recyclerviewofgeneral.setAdapter(adapter);
+        recyclerviewofscience.setAdapter(adapter);
 
 
         findNews();
@@ -68,3 +66,4 @@ public class generalf extends Fragment {
 
     }
 }
+

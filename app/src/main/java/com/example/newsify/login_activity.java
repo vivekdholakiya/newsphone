@@ -1,4 +1,4 @@
-package com.example.newsphone;
+package com.example.newsify;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -87,7 +85,7 @@ public class login_activity extends AppCompatActivity {
 
     private void chackfromdb() {
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://newsphone-465ed-default-rtdb.firebaseio.com");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://newsproject-a8cb0-default-rtdb.firebaseio.com/");
         reference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

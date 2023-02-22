@@ -1,4 +1,4 @@
-package com.example.newsphone;
+package com.example.newsify;
 
 public class Modal {
 
